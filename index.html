@@ -760,7 +760,7 @@
             }
         }
 
-        // Show second state with automatic kiss
+        // Show second state
         function showSecondState() {
             const initialState = document.getElementById('initialState');
             const secondState = document.getElementById('secondState');
@@ -768,11 +768,6 @@
             initialState.classList.add('hidden');
             secondState.classList.remove('hidden');
             secondState.classList.add('fade-in');
-            
-            // Trigger automatic face kiss after 2 seconds
-            setTimeout(() => {
-                showBigKiss('هاي بوسة لوجهج الي جنه كمر', '💋');
-            }, 2000);
         }
 
         // Move No button to random position
@@ -831,12 +826,18 @@
             const loveLetterState = document.getElementById('loveLetterState');
             const loveHearts = document.getElementById('loveHearts');
             
-            secondState.classList.add('hidden');
-            loveLetterState.classList.remove('hidden');
-            loveLetterState.classList.add('fade-in');
+            // Trigger face kiss when she says yes
+            showBigKiss('هاي بوسة لوجهج الي جنه كمر', '💋');
             
-            // Create enhanced floating hearts for love letter
-            createLoveHearts();
+            // Transition to love letter after kiss animation
+            setTimeout(() => {
+                secondState.classList.add('hidden');
+                loveLetterState.classList.remove('hidden');
+                loveLetterState.classList.add('fade-in');
+                
+                // Create enhanced floating hearts for love letter
+                createLoveHearts();
+            }, 2000);
         }
 
         // Show neck kiss and transition to final page
